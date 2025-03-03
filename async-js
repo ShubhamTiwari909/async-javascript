@@ -27,6 +27,12 @@
       "type": "code"
     },
     {
+      "code": "// Promise basic example\nconst basicPromise = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    let success = true; // Simulating success or failure\n    if (success) {\n      resolve(\"Task completed successfully!\");\n    } else {\n      reject(\"Task failed\");\n    }\n  }, 2000);\n});\n\nbasicPromise\n  .then((result) => {\n\tscrib.show(result); // Output: Task completed successfully!\n  })\n  .catch((error) => {\n\tscrib.show(error); // Output: Task failed (if failed)\n  })\n  .finally(() => {\n\tscrib.show(\"Promise execution completed.\");\n  });",
+      "status": "[4]<br><span style=\"font-size:8px\">2.002s<span></span></span>",
+      "output": "Task completed successfully! <br>Promise execution completed. <br>",
+      "type": "code"
+    },
+    {
       "code": "// Chaining promises method\nnew Promise((resolve) => {\n  setTimeout(() => resolve(10), 1000);\n})\n  .then((num) => {\n    scrib.show(num); // 10\n    return num * 2;\n  })\n  .then((num) => {\n    scrib.show(num); // 20\n    return num * 3;\n  })\n  .then((num) => {\n    scrib.show(num); // 60\n  });",
       "status": "[2]<br><span style=\"font-size:8px\">1.001s<span></span></span>",
       "output": "10 <br>20 <br>60 <br>",
