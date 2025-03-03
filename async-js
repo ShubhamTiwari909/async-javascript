@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "// Callback example\nfunction saveOrder(orderId, userMail, callback) {\n    const order = {\n\t  orderId,\n\t  userMail\n\t}\n\tscrib.show(order)\n    callback(userMail); // Execute the callback function\n}\n\nfunction sendOrderEmail(userMail) {\n    scrib.show(userMail, \"Order confirmed\")\n}\n\nsaveOrder(\"145908275\",\"user@gmail.com\", sendOrderEmail);\n// Will log the order and sends a confirmation email to the user using sendOrderEmail",
+      "status": "[14]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"orderId\": \"145908275\",\n  \"userMail\": \"user@gmail.com\"\n} <br>user@gmail.com Order confirmed <br>",
+      "type": "code"
+    },
+    {
+      "code": "// Async callback with setTimeout\nscrib.show(\"Javascript is awesome\");\n\nsetTimeout(() => {\n    scrib.show(\"This codeblock runs after 2 seconds\");\n}, 2000);\n\nscrib.show(\"Scribbler is awesome\");",
+      "status": "[15]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Javascript is awesome <br>Scribbler is awesome <br>",
+      "type": "code"
+    },
+    {
+      "code": "// Callback hell with multi level callbacks\nfunction saveOrder(orderId, userMail, callback) {\n    const order = {\n\t  orderId,\n\t  userMail\n\t}\n\tscrib.show(order)\n    callback(userMail); // Execute the callback function\n}\n\nfunction sendDetailsToSeller(orderId, userMail, callback) {\n  const details = {\n\t  orderId,\n\t  userMail\n\t}\n\tscrib.show(details)\n    callback(userMail);\n}\n\nfunction sendOrderEmail(userMail) {\n    scrib.show(userMail, \"Order confirmed\")\n}\n\nsaveOrder(\"145908275\",\"user@gmail.com\", () => sendDetailsToSeller(\"145908275\",\"user@gmail.com\",sendOrderEmail));\n // If you see we have to pass down the callbacks at multiple level in order to perform chaining operations.",
+      "status": "[16]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"orderId\": \"145908275\",\n  \"userMail\": \"user@gmail.com\"\n} <br>{\n  \"orderId\": \"145908275\",\n  \"userMail\": \"user@gmail.com\"\n} <br>user@gmail.com Order confirmed <br>This codeblock runs after 2 seconds <br>",
+      "type": "code"
+    },
+    {
+      "code": "// Promises - data fetching\nconst fetchApiData = new Promise((resolve, reject) => {\n  const response = fetch('https://jsonplaceholder.typicode.com/todos/1')\n});\nfetchApiData.then(response => response.json()).then(data => scrib.show(data)).catch(error => crib.show(error))",
+      "status": "[*]",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
