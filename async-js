@@ -27,12 +27,6 @@
       "type": "code"
     },
     {
-      "code": "// Promises - data fetching\nconst fetchApiData = new Promise((resolve, reject) => {\n  const response = fetch('https://jsonplaceholder.typicode.com/todos/1')\n});\nfetchApiData.then(response => response.json()).then(data => scrib.show(data)).catch(error => crib.show(error))",
-      "status": "[*]",
-      "output": "",
-      "type": "code"
-    },
-    {
       "code": "// Chaining promises method\nnew Promise((resolve) => {\n  setTimeout(() => resolve(10), 1000);\n})\n  .then((num) => {\n    scrib.show(num); // 10\n    return num * 2;\n  })\n  .then((num) => {\n    scrib.show(num); // 20\n    return num * 3;\n  })\n  .then((num) => {\n    scrib.show(num); // 60\n  });",
       "status": "[2]<br><span style=\"font-size:8px\">1.001s<span></span></span>",
       "output": "10 <br>20 <br>60 <br>",
