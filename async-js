@@ -37,6 +37,30 @@
       "status": "[2]<br><span style=\"font-size:8px\">1.001s<span></span></span>",
       "output": "10 <br>20 <br>60 <br>",
       "type": "code"
+    },
+    {
+      "code": "// Data fetching using fetch method\nfetch('https://jsonplaceholder.typicode.com/todos/1')\n    .then(response => {\n        if (!response.ok) {\n            throw new Error(`HTTP error! Status: ${response.status}`);\n        }\n        return response.json();\n    })\n    .then(data => scrib.show(data))\n    .catch(error => scrib.show(\"Fetch Error:\", error));",
+      "status": "[5]<br><span style=\"font-size:8px\">768ms<span></span></span>",
+      "output": "{\n  \"userId\": 1,\n  \"id\": 1,\n  \"title\": \"delectus aut autem\",\n  \"completed\": false\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "// Promise.all\nconst promise1 = new Promise((resolve) => {\n  setTimeout(() => resolve(Math.floor(3.14), 1000));\n})\nconst promise2 = new Promise((resolve) => {\n  setTimeout(() => resolve(Math.ceil(3.14), 1000));\n})\nconst promise3 = new Promise((resolve) => {\n  setTimeout(() => resolve(Math.pow(3.14, 10), 1000));\n})\n\n// Promise.all\nconst promiseAll = Promise.all([promise1,promise2,promise3])\npromiseAll.then(scrib.show())",
+      "status": "[7]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  3,\n  4,\n  93174.3733866435\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "// Promise.race\nconst promise1 = new Promise((resolve) => {\n  setTimeout(() => reject(Math.floor(3.14), 1000));\n})\nconst promise2 = new Promise((resolve) => {\n  setTimeout(() => resolve(Math.ceil(3.14), 1000));\n})\nconst promise3 = new Promise((resolve) => {\n  setTimeout(() => resolve(Math.pow(3.14, 10), 1000));\n})\n\n// Promise.race\nconst promiseRace = Promise.race([promise1,promise2,promise3])\npromiseRace.then(scrib.show())",
+      "status": "[8]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "4 <br>",
+      "type": "code"
+    },
+    {
+      "code": "// Promise.race\nconst promise1 = new Promise((resolve) => {\n  setTimeout(() => reject(Math.floor(3.14), 1000));\n})\nconst promise2 = new Promise((resolve) => {\n  setTimeout(() => resolve(Math.ceil(3.14), 1000));\n})\nconst promise3 = new Promise((resolve) => {\n  setTimeout(() => resolve(Math.pow(3.14, 10), 1000));\n})\n\n// Promise.race\nconst promiseAllSettled = Promise.allSettled([promise1,promise2,promise3])\npromiseAllSettled.then(scrib.show())",
+      "status": "[*]",
+      "output": "",
+      "type": "code"
     }
   ],
   "source": "https://github.com/gopi-suvanam/scribbler",
